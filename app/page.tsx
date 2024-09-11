@@ -1,3 +1,4 @@
+import { AnimatedBeamMultipleOutputDemo } from "@/components/AnimatedBeam";
 import { title, subtitle } from "@/components/primitives";
 
 export default function Home() {
@@ -13,6 +14,9 @@ export default function Home() {
           Build a foundation of machine learning and AI skills, and understand
           how to apply them in the real world.
         </h2>
+      </div>
+      <div className="flex justify-center">
+        <AnimatedBeamMultipleOutputDemo />
       </div>
     </section>
   );
