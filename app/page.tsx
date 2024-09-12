@@ -18,9 +18,7 @@ export default function Home() {
           how to apply them in the real world."
         />
       </div>
-      <div>
-        <PulsatingButton>Join course</PulsatingButton>;
-      </div>
+      <PulsatingButton>Join this course</PulsatingButton>;
       <div className="flex justify-center">
         <AnimatedBeamMultipleOutputDemo />
       </div>
