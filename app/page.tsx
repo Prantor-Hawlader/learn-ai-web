@@ -1,4 +1,5 @@
 import { AnimatedBeamMultipleOutputDemo } from "@/components/AnimatedBeam";
+import GradualSpacing from "@/components/magicui/gradual-spacing";
 import { title, subtitle } from "@/components/primitives";
 
 export default function Home() {
@@ -10,10 +11,11 @@ export default function Home() {
         <br />
         <h1 className={title()}>the future is</h1>
         <h1 className={title({ color: "cyan" })}> Now</h1>
-        <h2 className={subtitle({ class: "mt-4" })}>
-          Build a foundation of machine learning and AI skills, and understand
-          how to apply them in the real world.
-        </h2>
+        <GradualSpacing
+          className="font-display mt-3 text-center text-xl font-bold tracking-[-0.1em]  text-black dark:text-white"
+          text="Build a foundation of machine learning and AI skills, and understand
+          how to apply them in the real world."
+        />
       </div>
       <div className="flex justify-center">
         <AnimatedBeamMultipleOutputDemo />
