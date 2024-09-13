@@ -7,13 +7,14 @@ import {
   NavbarItem,
   NavbarMenuItem,
 } from "@nextui-org/navbar";
-import { Button } from "@nextui-org/button";
 import { Kbd } from "@nextui-org/kbd";
 import { Link } from "@nextui-org/link";
 import { Input } from "@nextui-org/input";
 import { link as linkStyles } from "@nextui-org/theme";
 import NextLink from "next/link";
 import clsx from "clsx";
+
+import PulsatingButton from "./magicui/pulsating-button";
 
 import { siteConfig } from "@/config/site";
 import { ThemeSwitch } from "@/components/theme-switch";
@@ -84,15 +85,7 @@ export const Navbar = () => {
         </NavbarItem>
         <NavbarItem className="hidden lg:flex">{searchInput}</NavbarItem>
         <NavbarItem className="hidden md:flex">
-          <Button
-            isExternal
-            as={Link}
-            className="font-bold bg-gradient-to-r from-[#FF1CF7] to-[#b249f8]"
-            href={siteConfig.links.learn}
-            variant="flat"
-          >
-            Let&apos;s Learn
-          </Button>
+          <PulsatingButton>Let&apos;s join</PulsatingButton>
         </NavbarItem>
       </NavbarContent>
 

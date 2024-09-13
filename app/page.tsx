@@ -1,7 +1,6 @@
 import { AnimatedBeamMultipleOutputDemo } from "@/components/AnimatedBeam";
 import GradualSpacing from "@/components/magicui/gradual-spacing";
-import PulsatingButton from "@/components/magicui/pulsating-button";
-import { title, subtitle } from "@/components/primitives";
+import { title } from "@/components/primitives";
 
 export default function Home() {
   return (
@@ -18,7 +17,6 @@ export default function Home() {
           how to apply them in the real world."
         />
       </div>
-      <PulsatingButton>Join this course</PulsatingButton>;
       <div className="flex justify-center">
         <AnimatedBeamMultipleOutputDemo />
       </div>
