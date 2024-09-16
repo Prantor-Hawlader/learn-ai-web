@@ -15,12 +15,14 @@ import NextLink from "next/link";
 import clsx from "clsx";
 
 import PulsatingButton from "./magicui/pulsating-button";
+import MyButton from "./MyButton";
 
 import { siteConfig } from "@/config/site";
 import { ThemeSwitch } from "@/components/theme-switch";
 import { TwitterIcon, GithubIcon, SearchIcon, Logo } from "@/components/icons";
+import { signOut } from "@/auth";
 
-export const Navbar = () => {
+export const Navbar = ({ session }: any) => {
   const searchInput = (
     <Input
       aria-label="Search"
@@ -43,9 +45,13 @@ export const Navbar = () => {
   );
 
   return (
-    <NextUINavbar maxWidth="xl" position="sticky">
+    <NextUINavbar
+      maxWidth="xl"
+      position="sticky"
+      className="isolate aspect-video bg-white/20 shadow-lg ring-1 ring-black/5"
+    >
       <NavbarContent className="basis-1/5 sm:basis-full" justify="start">
-        <NavbarBrand as="li" className="gap-3 max-w-fit">
+        <NavbarBrand as="li" className="gap-1 max-w-fit">
           <NextLink className="flex justify-start items-center gap-1" href="/">
             <Logo />
             <p className="font-bold text-inherit">Learn.Ai</p>
@@ -62,7 +68,7 @@ export const Navbar = () => {
                 color="foreground"
                 href={item.href}
               >
-                {item.label}
+                {(!item.shouldShow || item.shouldShow(session)) && item.label}
               </NextLink>
             </NavbarItem>
           ))}
@@ -81,6 +87,20 @@ export const Navbar = () => {
           <Link isExternal aria-label="Github" href={siteConfig.links.github}>
             <GithubIcon className="text-default-500" />
           </Link>
+          {!session ? (
+            <NextLink href="/login">
+              <MyButton>Login</MyButton>
+            </NextLink>
+          ) : (
+            <form
+              action={async () => {
+                "use server";
+                await signOut();
+              }}
+            >
+              <MyButton>Logout</MyButton>
+            </form>
+          )}
           <ThemeSwitch />
         </NavbarItem>
         <NavbarItem className="hidden lg:flex">{searchInput}</NavbarItem>

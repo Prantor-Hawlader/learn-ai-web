@@ -2,6 +2,8 @@
 
 import React, { forwardRef, useRef } from "react";
 
+import { Logo } from "./icons";
+
 import { cn } from "@/lib/utils";
 import { AnimatedBeam } from "@/components/magicui/animated-beam";
 
@@ -13,7 +15,7 @@ const Circle = forwardRef<
     <div
       ref={ref}
       className={cn(
-        "z-10 flex size-12 items-center justify-center rounded-full border-2 border-border bg-white p-3 shadow-[0_0_20px_-12px_rgba(0,0,0,0.8)]",
+        "z-10 flex size-12 items-center justify-center rounded-full border-2 border-border isolate aspect-video bg-white/20 ring-1 ring-black/5 p-3 shadow-[0_0_20px_-12px_rgba(0,0,0,0.8)]",
         className
       )}
     >
@@ -42,31 +44,21 @@ export function AnimatedBeamMultipleOutputDemo({
     <div
       ref={containerRef}
       className={cn(
-        "relative flex h-[500px] w-full items-center justify-center overflow-hidden rounded-lg border bg-background p-10 md:shadow-xl",
+        "relative flex h-[500px] w-full items-center justify-center overflow-hidden p-10 md:shadow-xl",
         className
       )}
     >
       <div className="flex size-full flex-row items-stretch justify-between gap-10 max-w-lg">
         <div className="flex flex-col justify-center gap-2">
-          <Circle ref={div1Ref}>
-            <Icons.googleDrive />
-          </Circle>
-          <Circle ref={div2Ref}>
-            <Icons.googleDocs />
-          </Circle>
-          <Circle ref={div3Ref}>
-            <Icons.whatsapp />
-          </Circle>
-          <Circle ref={div4Ref}>
-            <Icons.messenger />
-          </Circle>
-          <Circle ref={div5Ref}>
-            <Icons.notion />
-          </Circle>
+          <Circle ref={div1Ref} />
+          <Circle ref={div2Ref} />
+          <Circle ref={div3Ref} />
+          <Circle ref={div4Ref} />
+          <Circle ref={div5Ref} />
         </div>
         <div className="flex flex-col justify-center">
-          <Circle ref={div6Ref} className="size-16">
-            <Icons.openai />
+          <Circle ref={div6Ref} className="size-24">
+            <Logo />
           </Circle>
         </div>
         <div className="flex flex-col justify-center">

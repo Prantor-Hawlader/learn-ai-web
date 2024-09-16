@@ -8,6 +8,7 @@ import { Providers } from "./providers";
 import { siteConfig } from "@/config/site";
 import { fontMono } from "@/config/fonts";
 import { Navbar } from "@/components/navbar";
+import { getSession } from "@/lib/session";
 
 export const metadata: Metadata = {
   title: {
@@ -27,11 +28,13 @@ export const viewport: Viewport = {
   ],
 };
 
-export default function RootLayout({
+export default async function RootLayout({
   children,
 }: {
   children: React.ReactNode;
 }) {
+  const session = await getSession();
+
   return (
     <html suppressHydrationWarning lang="en">
       <head />
@@ -43,8 +46,8 @@ export default function RootLayout({
       >
         <Providers themeProps={{ attribute: "class", defaultTheme: "dark" }}>
           <div className="relative flex flex-col h-screen">
-            <Navbar />
-            <main className="container mx-auto max-w-7xl pt-16 px-6 flex-grow">
+            <Navbar session={session} />
+            <main className="container mx-auto max-w-7xl pt-4 px-6 flex-grow">
               {children}
             </main>
             <footer className="w-full flex items-center justify-center py-3">

@@ -1,8 +1,7 @@
 import * as React from "react";
 import Image from "next/image";
 
-import CompanyLogo from "../public/image.png";
-
+import CompanyLogo from "../public/Learn.ai logo (1).png";
 interface IconSvgProps {
   size?: number;
   width?: number;
@@ -11,7 +10,7 @@ interface IconSvgProps {
 }
 
 export const Logo: React.FC<IconSvgProps> = ({
-  size = 65,
+  size = 75,
   width,
   height,
   ...props

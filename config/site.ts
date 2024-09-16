@@ -1,3 +1,5 @@
+import { Session } from "next-auth";
+
 export type SiteConfig = typeof siteConfig;
 
 export const siteConfig = {
@@ -17,6 +19,11 @@ export const siteConfig = {
     {
       label: "About",
       href: "/about",
+    },
+    {
+      label: "Admin",
+      href: "/admin",
+      shouldShow: (session: Session) => session?.user?.role === "admin",
     },
   ],
   navMenuItems: [
