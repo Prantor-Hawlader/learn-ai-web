@@ -1,4 +1,5 @@
 import { AnimatedBeamMultipleOutputDemo } from "@/components/AnimatedBeam";
+import CodeEditor from "@/components/CodeEditor";
 import BoxReveal from "@/components/magicui/box-reveal";
 import GradualSpacing from "@/components/magicui/gradual-spacing";
 import { title } from "@/components/primitives";
@@ -21,7 +22,7 @@ export default function Home() {
             </p>
           </BoxReveal>
         </div>
-        <AnimatedBeamMultipleOutputDemo />
+        {/* <AnimatedBeamMultipleOutputDemo /> */}
       </div>
     </>
   );

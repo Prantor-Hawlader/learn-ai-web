@@ -48,7 +48,7 @@ export const Navbar = ({ session }: any) => {
     <NextUINavbar
       maxWidth="xl"
       position="sticky"
-      className="isolate aspect-video bg-white/20 shadow-lg ring-1 ring-black/5"
+      className="h-16 isolate aspect-video bg-white/20 shadow-lg ring-1 ring-black/5"
     >
       <NavbarContent className="basis-1/5 sm:basis-full" justify="start">
         <NavbarBrand as="li" className="gap-1 max-w-fit">
