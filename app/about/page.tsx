@@ -1,10 +1,10 @@
 import CodeEditor from "@/components/CodeEditor";
-import { title } from "@/components/primitives";
+import LearningCard from "@/components/LearningCard";
 
 export default function AboutPage() {
   return (
     <div>
-      <CodeEditor />
+      <LearningCard />
     </div>
   );
 }
