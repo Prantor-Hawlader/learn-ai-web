@@ -50,16 +50,6 @@ export default async function RootLayout({
             <main className="container mx-auto max-w-7xl pt-4 px-6 flex-grow">
               {children}
             </main>
-            <footer className="w-full flex items-center justify-center py-3">
-              <Link
-                isExternal
-                className="flex items-center gap-1 text-current"
-                href="https://github.com/Prantor-Hawlader"
-              >
-                <span className="text-default-600">Developed by</span>
-                <p className="text-primary">Prantor</p>
-              </Link>
-            </footer>
           </div>
         </Providers>
       </body>
