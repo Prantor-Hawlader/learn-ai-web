@@ -23,7 +23,7 @@ const Code = ({ code, animated, show }: CodeProps) => {
           if (i > code.length) {
             clearInterval(intervalId);
           }
-        }, 30);
+        }, 100);
 
         return () => clearInterval(intervalId);
       }, 150);

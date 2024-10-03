@@ -6,6 +6,8 @@ import { Button } from "@nextui-org/react";
 import React from "react";
 
 import CodeBlock from "./CodeBlock";
+import CodeEditor from "./CodeEditor";
+import { IconPinInvoke } from "@tabler/icons-react";
 
 const AnimatedText = ({ content, index }: any) => {
   const textVariants = {
@@ -23,7 +25,7 @@ const AnimatedText = ({ content, index }: any) => {
         type: "spring",
         stiffness: 100,
         damping: 15,
-        duration: 10,
+        duration: 5,
       },
     },
   };
@@ -35,9 +37,14 @@ const AnimatedText = ({ content, index }: any) => {
       initial="hidden"
       variants={textVariants}
     >
-      <motion.p className="text-lg font-medium text-white text-start">
-        {content}
-      </motion.p>
+      {typeof content === "string" ? (
+        <div className="flex gap-2  text-lg font-medium  text-start items-center">
+          <IconPinInvoke className="text-neutral-700 dark:text-neutral-200 h-5 w-8 flex-shrink-0" />{" "}
+          {content}
+        </div>
+      ) : (
+        content
+      )}
     </motion.div>
   );
 };
@@ -75,17 +82,14 @@ export default function Component() {
   const latestCardRef = useRef<HTMLDivElement>(null);
 
   const texts = [
-    "১ম: স্বাগতম! শুরু করুন।",
-    "২য়: চমৎকার! এগিয়ে যান।",
-    "৩য়: দারুণ! ভালো যাচ্ছে।",
-    "৪র্থ: অসাধারণ! অগ্রগতি লক্ষণীয়।",
-    "৫ম: বিস্ময়কর! অনেকটা এগিয়েছেন।",
-    "৬ষ্ঠ: অভিনন্দন! অর্ধেক পথ শেষ।",
-    "৭ম: সাবাশ! দৃঢ়তা বজায় রাখুন।",
-    "৮ম: চমৎকার! শেষের দিকে।",
-    "৯ম: প্রায় শেষ! আর একটু।",
-    "১০ম: অভিনন্দন! সফলভাবে শেষ।",
+    "Python এর সিনট্যাক্স খুবই সরল এবং সহজবোধ্য, যা প্রোগ্রামারদের কোড লেখা ও পড়া সহজ করে তোলে। Python এ ইন্ডেন্টেশন ব্যবহার করে ব্লক গঠন করা হয়, এবং সেমিকোলন বা কার্লি ব্রেসের প্রয়োজন হয় না।",
+    "Python এ ভেরিয়েবল ডিক্লারেশন করার জন্য আলাদা কোনো কিওয়ার্ডের প্রয়োজন হয় না, এবং এটি স্বয়ংক্রিয়ভাবে ডেটা টাইপ নির্ধারণ করে। এছাড়াও, Python এ ফাংশন ডিফাইন করতে def কিওয়ার্ড ব্যবহার করা হয় এবং লুপ ও শর্তাবলী লেখার জন্য সহজ ও পরিষ্কার সিনট্যাক্স প্রদান করে।",
+    "Python এ শর্তমূলক স্টেটমেন্টগুলোতে if, elif, এবং else ব্যবহার করা হয়, যা প্রোগ্রামের লজিক সহজ করে তোলে। লুপের জন্য for এবং while লুপ ব্যবহৃত হয়। Python এ ফাংশন বা মেথডে আর্গুমেন্ট পাস করার সময় ডিফল্ট ভ্যালু দেওয়া যায়, যা কোডিংয়ে আরও বেশি ফ্লেক্সিবিলিটি প্রদান করে।",
+    "Python এ লিস্ট, টাপল, সেট, এবং ডিকশনারির মতো ডেটা স্ট্রাকচার সহজভাবে ব্যবহার করা যায়, যা প্রোগ্রামিংয়ে শক্তিশালী ডেটা ম্যানিপুলেশন সক্ষম করে। Python এর সিনট্যাক্স মডিউল ইমপোর্ট ও ব্যবহার করার ক্ষেত্রেও খুব সহজ, যা প্রোগ্রামারদের কোড পুনঃব্যবহারযোগ্য এবং মডুলার করে তোলে।",
+    "Python এর সিনট্যাক্সে ফাইল হ্যান্ডলিংও খুব সহজ। with open() স্টেটমেন্ট ব্যবহার করে ফাইল ওপেন এবং ক্লোজ করা যায়, যা মেমোরি লিকের ঝুঁকি কমায়। এছাড়াও, Python এর লিস্ট কম্প্রিহেনশন একটি সংক্ষিপ্ত ও কার্যকর উপায়ে লিস্ট তৈরি করার সুবিধা দেয়, যা কোডিংকে আরও সংক্ষিপ্ত ও দ্রুত করে তোলে।",
+
     <CodeBlock key={11} />,
+    <CodeEditor key={12} />,
   ];
 
   const handleClick = () => {
@@ -115,7 +119,7 @@ export default function Component() {
 
   return (
     <>
-      <div className="relative min-h-screen">
+      <div className="relative min-h-screen mt-11 mx-5">
         <div>
           <AnimatePresence>
             {texts.slice(0, clicks).map((content, index) => (
@@ -138,8 +142,10 @@ export default function Component() {
         </div>
       </div>
 
-      <div className="sticky bottom-0 bg-gray-800 p-4 text-white flex justify-end items-center">
-        <Button onClick={handleClick}>ক্লিক করুন!</Button>
+      <div className="w-full sticky bottom-0 bg-gradient-to-r from-[#00b7fa] to-[#01cfea] p-4 text-white flex justify-end items-center">
+        <Button color="warning" onClick={handleClick}>
+          ক্লিক করুন!
+        </Button>
       </div>
     </>
   );
