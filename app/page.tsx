@@ -4,11 +4,12 @@ import CodeEditor from "@/components/CodeEditor";
 import BoxReveal from "@/components/magicui/box-reveal";
 import GradualSpacing from "@/components/magicui/gradual-spacing";
 import { title } from "@/components/primitives";
+import Stepper from "@/components/ui/Stepper";
 
 export default function Home() {
   return (
     <div className="grid grid-cols-2 items-center place-items-center">
-      <CodeBlock />
+      <Stepper />
       {/* <div className="w-full ml-8">
           <BoxReveal boxColor={"#5046e6"} duration={0.5} width="100%">
             <GradualSpacing
