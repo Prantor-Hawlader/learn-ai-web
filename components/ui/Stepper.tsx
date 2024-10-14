@@ -60,7 +60,6 @@ export default function Stepper() {
           className="flex items-center justify-center gap-3"
           initial={"initial"}
           style={style}
-          variants={variants}
           onClick={() => setActive(true)}
         >
           Variable
