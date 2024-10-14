@@ -14,7 +14,7 @@ const CodeEditor = () => {
   };
 
   return (
-    <div className="flex flex-col gap-4 mx-5">
+    <div className="w-full flex flex-col gap-4 mx-5">
       <Card className="w-full">
         <Editor
           defaultLanguage="python"

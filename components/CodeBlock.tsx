@@ -12,7 +12,7 @@ elif score >= 80: return "B"
 else: return "F"`;
 
   return (
-    <div className="relative flex h-[140px] w-[350px] items-start justify-center overflow-hidden rounded-lg border bg-background p-2 md:shadow-xl">
+    <div className="flex h-[140px] w-1/2 items-start justify-center overflow-hidden rounded-lg border bg-background p-2 md:shadow-xl">
       <Code animated={true} code={myCode} show={true} />
 
       <GridPattern

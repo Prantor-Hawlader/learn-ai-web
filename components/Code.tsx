@@ -33,7 +33,7 @@ const Code = ({ code, animated, show }: CodeProps) => {
   return (
     <div>
       <Highlight code={text} language="python" theme={themes.dracula}>
-        {({ className, style, tokens, getLineProps, getTokenProps }) => (
+        {({ className, style, tokens, getTokenProps }) => (
           <pre
             className={className + "transition-all duration-700 no-scrollbar"}
             style={{

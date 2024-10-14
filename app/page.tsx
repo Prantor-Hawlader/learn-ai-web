@@ -10,6 +10,8 @@ export default function Home() {
   return (
     <div className="grid grid-cols-2 items-center place-items-center">
       <Stepper />
+      {/* <LearningCard /> */}
+
       {/* <div className="w-full ml-8">
           <BoxReveal boxColor={"#5046e6"} duration={0.5} width="100%">
             <GradualSpacing

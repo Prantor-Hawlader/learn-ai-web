@@ -1,15 +1,15 @@
 "use client";
-
+import { Highlight, themes } from "prism-react-renderer";
 import { useState, useRef, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Button } from "@nextui-org/react";
 import React from "react";
+import { IconPinInvoke } from "@tabler/icons-react";
 
 import CodeBlock from "./CodeBlock";
 import CodeEditor from "./CodeEditor";
-import { IconPinInvoke } from "@tabler/icons-react";
 
-const AnimatedText = ({ content, index }: any) => {
+const AnimatedText = ({ content }: any) => {
   const textVariants = {
     hidden: {
       opacity: 0,
@@ -38,43 +38,40 @@ const AnimatedText = ({ content, index }: any) => {
       variants={textVariants}
     >
       {typeof content === "string" ? (
-        <div className="flex gap-2  text-lg font-medium  text-start items-center">
+        <div className="flex gap-2 text-lg font-medium  text-start items-start text-wrap">
           <IconPinInvoke className="text-neutral-700 dark:text-neutral-200 h-5 w-8 flex-shrink-0" />{" "}
-          {content}
+          <Highlight code={content} language="python" theme={themes.dracula}>
+            {({ className, style, tokens, getTokenProps }) => (
+              <pre
+                className={className + "transition-all duration-700 text-wrap"}
+                style={{
+                  ...style,
+                  background: "transparent",
+                  marginBottom: 2,
+                  opacity: 1,
+                  height: "auto",
+                  width: "fit-content",
+                }}
+              >
+                {tokens.map((line, i) => (
+                  <div key={i}>
+                    {line.map((token, key) => (
+                      <span key={key} {...getTokenProps({ token })} />
+                    ))}
+                  </div>
+                ))}
+              </pre>
+            )}
+          </Highlight>
         </div>
       ) : (
-        content
+        <div className="mt-8 flex flex-col items-center justify-center">
+          {content}
+        </div>
       )}
     </motion.div>
   );
 };
-
-// const AnimatedCard = () => {
-//   const cardVariants = {
-//     hidden: { opacity: 0, y: 50 },
-//     visible: {
-//       opacity: 1,
-//       y: 0,
-//       transition: {
-//         type: "spring",
-//         stiffness: 100,
-//         damping: 15,
-//         duration: 2,
-//       },
-//     },
-//   };
-
-//   return (
-//     <motion.div
-//       animate="visible"
-//       className="mt-8"
-//       initial="hidden"
-//       variants={cardVariants}
-//     >
-//       <CodeBlock />
-//     </motion.div>
-//   );
-// };
 
 export default function Component() {
   const [clicks, setClicks] = useState<number>(0);
@@ -83,6 +80,7 @@ export default function Component() {
 
   const texts = [
     "Python এর সিনট্যাক্স খুবই সরল এবং সহজবোধ্য, যা প্রোগ্রামারদের কোড লেখা ও পড়া সহজ করে তোলে। Python এ ইন্ডেন্টেশন ব্যবহার করে ব্লক গঠন করা হয়, এবং সেমিকোলন বা কার্লি ব্রেসের প্রয়োজন হয় না।",
+    "Python-এ ফাংশনকে সংজ্ঞায়িত করা হয় def কীওয়ার্ড দিয়ে এবং ফাংশনটি একটি নাম প্রদান করা হয়। এরপর ফাংশনের ভেতরে সেই নির্দিষ্ট কাজের জন্য কোড লেখা হয়। এবং লুপ ও শর্তাবলী লেখার জন্য সহজ ও পরিষ্কার সিনট্যাক্স প্রদান করে। def assign_grade(score)",
     "Python এ ভেরিয়েবল ডিক্লারেশন করার জন্য আলাদা কোনো কিওয়ার্ডের প্রয়োজন হয় না, এবং এটি স্বয়ংক্রিয়ভাবে ডেটা টাইপ নির্ধারণ করে। এছাড়াও, Python এ ফাংশন ডিফাইন করতে def কিওয়ার্ড ব্যবহার করা হয় এবং লুপ ও শর্তাবলী লেখার জন্য সহজ ও পরিষ্কার সিনট্যাক্স প্রদান করে।",
     "Python এ শর্তমূলক স্টেটমেন্টগুলোতে if, elif, এবং else ব্যবহার করা হয়, যা প্রোগ্রামের লজিক সহজ করে তোলে। লুপের জন্য for এবং while লুপ ব্যবহৃত হয়। Python এ ফাংশন বা মেথডে আর্গুমেন্ট পাস করার সময় ডিফল্ট ভ্যালু দেওয়া যায়, যা কোডিংয়ে আরও বেশি ফ্লেক্সিবিলিটি প্রদান করে।",
     "Python এ লিস্ট, টাপল, সেট, এবং ডিকশনারির মতো ডেটা স্ট্রাকচার সহজভাবে ব্যবহার করা যায়, যা প্রোগ্রামিংয়ে শক্তিশালী ডেটা ম্যানিপুলেশন সক্ষম করে। Python এর সিনট্যাক্স মডিউল ইমপোর্ট ও ব্যবহার করার ক্ষেত্রেও খুব সহজ, যা প্রোগ্রামারদের কোড পুনঃব্যবহারযোগ্য এবং মডুলার করে তোলে।",

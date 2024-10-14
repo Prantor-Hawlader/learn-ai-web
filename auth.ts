@@ -8,8 +8,6 @@ import prisma from "./db/prisma";
 
 export const { handlers, signIn, signOut, auth } = NextAuth({
   providers: [
-    Google,
-
     Credentials({
       name: "Credentials",
 
@@ -77,33 +75,33 @@ export const { handlers, signIn, signOut, auth } = NextAuth({
     },
 
     signIn: async ({ user, account }) => {
-      if (account?.provider === "google") {
-        try {
-          const { email, name, id } = user;
+      // if (account?.provider === "google") {
+      //   try {
+      //     const { email, name, id } = user;
 
-          const alreadyUser = await prisma.user.findUnique({
-            where: { id },
-          });
+      //     const alreadyUser = await prisma.user.findUnique({
+      //       where: { id },
+      //     });
 
-          if (!alreadyUser) {
-            if (email && name) {
-              await prisma.user.create({
-                data: {
-                  email: email,
-                  name: name,
-                  authProviderId: id,
-                },
-              });
-            } else {
-              throw new Error("Email or name is missing from the user object");
-            }
-          } else {
-            return true;
-          }
-        } catch (error) {
-          throw new Error("Error while creating user");
-        }
-      }
+      //     if (!alreadyUser) {
+      //       if (email && name) {
+      //         await prisma.user.create({
+      //           data: {
+      //             email: email,
+      //             name: name,
+      //             authProviderId: id,
+      //           },
+      //         });
+      //       } else {
+      //         throw new Error("Email or name is missing from the user object");
+      //       }
+      //     } else {
+      //       return true;
+      //     }
+      //   } catch (error) {
+      //     throw new Error("Error while creating user");
+      //   }
+      // }
 
       if (account?.provider === "credentials") {
         return true;
