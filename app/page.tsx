@@ -9,7 +9,7 @@ import Stepper from "@/components/ui/Stepper";
 export default function Home() {
   return (
     <div className="grid grid-cols-2 items-center place-items-center">
-      <Stepper />
+      {/* <Stepper /> */}
       {/* <LearningCard /> */}
 
       {/* <div className="w-full ml-8">
