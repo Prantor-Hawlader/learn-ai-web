@@ -1,6 +1,7 @@
 "use client";
 import React, { useState, useRef, useEffect, useCallback } from "react";
 
+import { Checkbox } from "@/components/ui/checkbox";
 import "./App.css";
 import { TypographyDemo } from "@/components/Typography";
 
@@ -137,6 +138,8 @@ function App() {
   return (
     <div className="flex flex-col items-center p-4">
       <TypographyDemo />
+      <Checkbox />
+
       <div className="mb-4 flex space-x-4">
         <button
           className={` ${
