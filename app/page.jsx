@@ -1,6 +1,7 @@
 "use client";
 import React, { useState, useRef, useEffect, useCallback } from "react";
 import "./App.css";
+import { TypographyDemo } from "@/components/Typography";
 
 function App() {
   const canvasRef = useRef(null);
@@ -134,6 +135,7 @@ function App() {
 
   return (
     <div className="flex flex-col items-center p-4">
+      <TypographyDemo />
       <div className="mb-4 flex space-x-4">
         <button
           className={` ${
