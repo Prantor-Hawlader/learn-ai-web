@@ -1,5 +1,6 @@
 "use client";
 import React, { useState, useRef, useEffect, useCallback } from "react";
+
 import "./App.css";
 import { TypographyDemo } from "@/components/Typography";
 
