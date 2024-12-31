@@ -5,7 +5,7 @@ export type SiteConfig = typeof siteConfig;
 export const siteConfig = {
   name: "Learn AI",
   description:
-    "Build a foundation of machine learning and AI skills, and understand how to apply them in the real world..",
+    "Learn Ultimate Python from scratch with no tutorials hell. Learn with interactive lessons, practice with live editors and real-time feedback.",
   navItems: [
     {
       label: "Home",
@@ -49,9 +49,4 @@ export const siteConfig = {
       href: "/logout",
     },
   ],
-  links: {
-    github: "https://github.com",
-    twitter: "https://twitter.com",
-    learn: "https://learn-ai.com",
-  },
 };
