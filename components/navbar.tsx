@@ -19,7 +19,7 @@ import MyButton from "./MyButton";
 
 import { siteConfig } from "@/config/site";
 import { ThemeSwitch } from "@/components/theme-switch";
-import { TwitterIcon, GithubIcon, SearchIcon, Logo } from "@/components/icons";
+import { SearchIcon, Logo } from "@/components/icons";
 import { signOut } from "@/auth";
 
 export const Navbar = ({ session }: any) => {
@@ -46,9 +46,9 @@ export const Navbar = ({ session }: any) => {
 
   return (
     <NextUINavbar
+      className="h-16 isolate aspect-video bg-white/20 shadow-lg ring-1 ring-black/5"
       maxWidth="xl"
       position="sticky"
-      className="h-16 isolate aspect-video bg-white/20 shadow-lg ring-1 ring-black/5"
     >
       <NavbarContent className="basis-1/5 sm:basis-full" justify="start">
         <NavbarBrand as="li" className="gap-1 max-w-fit">
@@ -80,13 +80,6 @@ export const Navbar = ({ session }: any) => {
         justify="end"
       >
         <NavbarItem className="hidden sm:flex gap-2">
-          <Link isExternal aria-label="Twitter" href={siteConfig.links.twitter}>
-            <TwitterIcon className="text-default-500" />
-          </Link>
-
-          <Link isExternal aria-label="Github" href={siteConfig.links.github}>
-            <GithubIcon className="text-default-500" />
-          </Link>
           {!session ? (
             <NextLink href="/login">
               <MyButton>Login</MyButton>
@@ -110,9 +103,6 @@ export const Navbar = ({ session }: any) => {
       </NavbarContent>
 
       <NavbarContent className="sm:hidden basis-1 pl-4" justify="end">
-        <Link isExternal aria-label="Github" href={siteConfig.links.github}>
-          <GithubIcon className="text-default-500" />
-        </Link>
         <ThemeSwitch />
         <NavbarMenuToggle />
       </NavbarContent>
