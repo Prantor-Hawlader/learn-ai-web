@@ -2,7 +2,7 @@
 import React from "react";
 import { motion } from "framer-motion";
 
-import { useSidebar } from "./Sidebar";
+import { useSidebar } from "./sidebar";
 
 import { cn } from "@/lib/utils";
 const DesktopSidebar = ({

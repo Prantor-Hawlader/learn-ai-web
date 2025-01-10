@@ -5,7 +5,7 @@ import React from "react";
 import { AnimatePresence, motion } from "framer-motion";
 import { IconMenu2, IconX } from "@tabler/icons-react";
 
-import { useSidebar } from "./Sidebar";
+import { useSidebar } from "./sidebar";
 
 import { cn } from "@/lib/utils";
 

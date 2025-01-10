@@ -8,6 +8,8 @@ import { siteConfig } from "@/config/site";
 import { fontMono } from "@/config/fonts";
 import { Navbar } from "@/components/navbar";
 import { getSession } from "@/lib/session";
+import { AppSidebar } from "@/components/app-sidebar";
+import { SidebarProvider, SidebarTrigger } from "@/components/ui/sidebar";
 
 export const metadata: Metadata = {
   title: {
@@ -46,9 +48,13 @@ export default async function RootLayout({
         <Providers themeProps={{ attribute: "class", defaultTheme: "dark" }}>
           <div className="relative flex flex-col h-screen">
             <Navbar session={session} />
-            <main className="container mx-auto max-w-7xl pt-4 px-6 flex-grow">
-              {children}
-            </main>
+            <SidebarProvider>
+              <AppSidebar />
+              <main>
+                <SidebarTrigger />
+                {children}
+              </main>
+            </SidebarProvider>
           </div>
         </Providers>
       </body>
