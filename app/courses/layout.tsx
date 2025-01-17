@@ -1,4 +1,3 @@
-import SidebarDemo from "@/components/ui/SidebarDemo";
 import { cn } from "@/lib/utils";
 
 export default function CourseLayout({
@@ -13,7 +12,6 @@ export default function CourseLayout({
         "h-[30rem]"
       )}
     >
-      <SidebarDemo />
       <section className="flex flex-1 overflow-y-auto max-h-[40rem]">
         <div className="flex flex-col gap-2 flex-1 w-full">{children}</div>
       </section>

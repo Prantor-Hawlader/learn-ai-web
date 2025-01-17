@@ -1,6 +1,6 @@
 import Typewriter from "./ui/typewriter";
 
-export default function Preview() {
+export default function RunningLetter() {
   return (
     <div className="w-full h-full md:text-4xl lg:text-5xl sm:text-3xl text-2xl flex flex-row items-start justify-start bg-background font-normal overflow-hidden p-16 pt-48">
       <p className="whitespace-pre-wrap">
